@@ -1,0 +1,28 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node --version)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(python3 -c \"import json,sys; data=json.load\\(sys.stdin\\); print\\(data[0][''text'']\\)\")",
+      "Bash(mongosh --eval \"use wab; db.messages.find\\(\\).limit\\(5\\).toArray\\(\\)\" --quiet)",
+      "Bash(mongosh \"mongodb://localhost:27017/wab\" --eval \"db.messages.find\\(\\).limit\\(5\\).toArray\\(\\)\" --quiet)",
+      "Bash(mongosh \"mongodb://localhost:27017/wab\" --eval \"print\\(''messages:'', db.messages.countDocuments\\(\\)\\); print\\(''conversations:'', db.conversations.countDocuments\\(\\)\\); print\\(''contacts:'', db.contacts.countDocuments\\(\\)\\); print\\(''users:'', db.users.countDocuments\\(\\)\\);\" --quiet)",
+      "Bash(curl -s \"https://graph.facebook.com/v22.0/1015307211664944\" -H \"Authorization: Bearer EAATlV4uc7aMBQ1bXXtsaRcQiKDBUVd6BhzAEz3ZBWikY2s1lEkgANNASkch2X6lKoh3TQVUFAdWZBhizUfkYeoktuKjm42yyUV7y0KBWgzZBYCKBszxXMssnOPlm2O1t0EOtm82wbtuQqiw92shV3o89PI1TeTkjoYfWIOKJwwZBtIepXweX8beCtZAmKZARIMr4MuSZC6Y2Qhif1LR2ZCUjAo7esjU0nqq1VTQYVLAspQJozpyZCyq6HR64mknQgYd2fLmRs73HzVirCFAbtxzjPJAZDZD\")",
+      "Bash(ngrok version)",
+      "Bash(npm install -g ngrok)",
+      "Bash(curl -s http://127.0.0.1:4040/api/tunnels)",
+      "Bash(where ngrok.exe)",
+      "Read(//c/Users/nkshu/AppData/Local/ngrok/**)",
+      "Read(//c/ProgramData/chocolatey/bin/**)",
+      "Bash(winget list ngrok)",
+      "Bash(choco list --local-only ngrok)",
+      "Bash(curl -s -Lo /tmp/ngrok.zip https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip)",
+      "Bash(unzip -o /tmp/ngrok.zip -d /c/Users/nkshu/AppData/Local/ngrok/)",
+      "Bash(curl -s -H \"bypass-tunnel-reminder: true\" \"https://cute-adults-wash.loca.lt/api/health\")",
+      "Bash(curl -s -H \"bypass-tunnel-reminder: true\" \"https://cute-adults-wash.loca.lt/api/webhook?hub.mode=subscribe&hub.verify_token=nitishapple11&hub.challenge=test123\")",
+      "Bash(curl -s -X POST \"https://graph.facebook.com/v22.0/1465817245036146/subscribed_apps\" -H \"Authorization: Bearer EAATlV4uc7aMBQ1bXXtsaRcQiKDBUVd6BhzAEz3ZBWikY2s1lEkgANNASkch2X6lKoh3TQVUFAdWZBhizUfkYeoktuKjm42yyUV7y0KBWgzZBYCKBszxXMssnOPlm2O1t0EOtm82wbtuQqiw92shV3o89PI1TeTkjoYfWIOKJwwZBtIepXweX8beCtZAmKZARIMr4MuSZC6Y2Qhif1LR2ZCUjAo7esjU0nqq1VTQYVLAspQJozpyZCyq6HR64mknQgYd2fLmRs73HzVirCFAbtxzjPJAZDZD\" -H \"Content-Type: application/json\")",
+      "Bash(npm run build)"
+    ]
+  }
+}
