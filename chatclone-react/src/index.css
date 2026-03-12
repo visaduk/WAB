@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 36 33% 91%; /* #eae6df */
+    --foreground: 203 40% 10%; /* #111b21 */
+
+    --card: 0 0% 100%;
+    --card-foreground: 203 40% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 203 40% 10%;
+
+    --primary: 168 100% 33%; /* #00a884 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 17% 95%; /* #f0f2f5 */
+    --secondary-foreground: 203 40% 10%;
+
+    --muted: 210 17% 95%;
+    --muted-foreground: 200 14% 46%; /* #667781 */
+
+    --accent: 130 76% 90%; /* #d9fdd3 - outgoing bubble */
+    --accent-foreground: 203 40% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 93%; /* #e9edef */
+    --input: 0 0% 100%;
+    --ring: 168 100% 33%;
+
+    --radius: 0.5rem;
+
+    /* WhatsApp specific tokens */
+    --wa-green: 168 100% 33%; /* #00a884 */
+    --wa-green-bright: 142 70% 49%; /* #25d366 */
+    --wa-panel-bg: 36 33% 91%; /* #eae6df */
+    --wa-chat-bg: 39 35% 89%; /* #efeae2 */
+    --wa-header: 210 17% 95%; /* #f0f2f5 */
+    --wa-hover: 200 7% 96%; /* #f5f6f6 */
+    --wa-active: 210 17% 95%;
+    --wa-outgoing: 130 76% 90%; /* #d9fdd3 */
+    --wa-incoming: 0 0% 100%;
+    --wa-icon: 200 13% 38%; /* #54656f */
+    --wa-text-primary: 203 40% 10%;
+    --wa-text-secondary: 200 14% 46%;
+    --wa-date-chip: 200 60% 94%; /* #e1f2fb */
+    --wa-compose: 0 0% 100%;
+    --wa-filter-active: 168 60% 90%;
+    --wa-read-check: 202 80% 54%; /* blue check marks */
+    --wa-icon-sidebar: 200 24% 16%;
+    --wa-icon-sidebar-active: 168 100% 33%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 203 40% 10%;
+    --sidebar-primary: 168 100% 33%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 17% 95%;
+    --sidebar-accent-foreground: 203 40% 10%;
+    --sidebar-border: 200 20% 93%;
+    --sidebar-ring: 168 100% 33%;
+  }
+
+  .dark {
+    --background: 200 43% 7%; /* #0b141a */
+    --foreground: 200 20% 93%; /* #e9edef */
+
+    --card: 203 40% 10%; /* #111b21 */
+    --card-foreground: 200 20% 93%;
+
+    --popover: 198 28% 16%; /* #233138 */
+    --popover-foreground: 200 20% 93%;
+
+    --primary: 168 100% 33%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 24% 16%; /* #202c33 */
+    --secondary-foreground: 200 20% 93%;
+
+    --muted: 200 24% 16%;
+    --muted-foreground: 200 13% 58%; /* #8696a0 */
+
+    --accent: 171 100% 18%; /* #005c4b */
+    --accent-foreground: 200 20% 93%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 200 20% 93%;
+
+    --border: 200 18% 17%; /* #222d34 */
+    --input: 200 20% 19%; /* #2a3942 */
+    --ring: 168 100% 33%;
+
+    --wa-green: 168 100% 33%;
+    --wa-green-bright: 168 100% 33%;
+    --wa-panel-bg: 200 43% 7%;
+    --wa-chat-bg: 200 43% 7%;
+    --wa-header: 200 24% 16%;
+    --wa-hover: 200 24% 16%;
+    --wa-active: 200 20% 19%;
+    --wa-outgoing: 171 100% 18%;
+    --wa-incoming: 200 24% 16%;
+    --wa-icon: 200 13% 70%;
+    --wa-text-primary: 200 20% 93%;
+    --wa-text-secondary: 200 13% 58%;
+    --wa-date-chip: 200 30% 12%;
+    --wa-compose: 200 20% 19%;
+    --wa-filter-active: 165 60% 11%;
+    --wa-read-check: 202 80% 54%;
+    --wa-icon-sidebar: 200 30% 11%;
+    --wa-icon-sidebar-active: 168 100% 33%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  }
+}
+
+/* WhatsApp wallpaper pattern */
+.wa-wallpaper {
+  background-color: hsl(var(--wa-chat-bg));
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Message bubble tails */
+.bubble-tail-out {
+  position: relative;
+}
+.bubble-tail-out::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -8px;
+  width: 8px;
+  height: 13px;
+  background: hsl(var(--wa-outgoing));
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+}
+
+.bubble-tail-in {
+  position: relative;
+}
+.bubble-tail-in::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  width: 8px;
+  height: 13px;
+  background: hsl(var(--wa-incoming));
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+}
+
+/* Scrollbar styling */
+.wa-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.wa-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.wa-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
