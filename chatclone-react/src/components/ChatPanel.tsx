@@ -11,6 +11,8 @@ import type { Conversation, Message } from "@/types";
 
 interface ChatPanelProps {
   conversation: Conversation;
+  onToggleProfile?: () => void;
+  isProfileOpen?: boolean;
 }
 
 /** Check whether two timestamps fall on different calendar days */
@@ -18,7 +20,7 @@ function isDifferentDay(a: string, b: string) {
   return new Date(a).toDateString() !== new Date(b).toDateString();
 }
 
-export default function ChatPanel({ conversation }: ChatPanelProps) {
+export default function ChatPanel({ conversation, onToggleProfile, isProfileOpen }: ChatPanelProps) {
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -133,18 +135,18 @@ export default function ChatPanel({ conversation }: ChatPanelProps) {
     <div className="flex h-full flex-col">
       {/* Header */}
       <div className="flex h-[60px] shrink-0 items-center justify-between border-b border-border bg-wa-header px-4">
-        <div className="flex items-center gap-3">
+        <button className="flex items-center gap-3 rounded-lg px-1 -ml-1 hover:bg-wa-hover transition-colors" onClick={onToggleProfile}>
           <div
             className="flex h-10 w-10 items-center justify-center rounded-full text-xs font-semibold"
             style={{ backgroundColor: color, color: "white" }}
           >
             {avatar}
           </div>
-          <div>
+          <div className="text-left">
             <p className="text-base font-normal text-foreground">{name}</p>
             <p className="text-xs text-muted-foreground">{conversation.contact.phoneNumber}</p>
           </div>
-        </div>
+        </button>
         <div className="flex items-center gap-3">
           <button className="rounded-full p-2 hover:bg-wa-hover"><Video size={20} className="text-wa-icon" /></button>
           <button className="rounded-full p-2 hover:bg-wa-hover"><Phone size={20} className="text-wa-icon" /></button>

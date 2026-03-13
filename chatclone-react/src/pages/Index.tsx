@@ -3,6 +3,7 @@ import { Phone, RefreshCw, Radio, Users } from "lucide-react";
 import ChatSidebar from "@/components/ChatSidebar";
 import ChatPanel from "@/components/ChatPanel";
 import EmptyChatPanel from "@/components/EmptyChatPanel";
+import ContactProfilePanel from "@/components/ContactProfilePanel";
 import SettingsPanel from "@/components/SettingsPanel";
 import IconSidebar, { type IconTab } from "@/components/IconSidebar";
 import { useSocket } from "@/context/SocketContext";
@@ -23,6 +24,7 @@ const Index = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [selectedConversation, setSelectedConversation] = useState<Conversation | null>(null);
   const [activeTab, setActiveTab] = useState<IconTab>("chats");
+  const [profileOpen, setProfileOpen] = useState(false);
   const { socket } = useSocket();
   const { user } = useAuth();
   const { updateConversationInCache } = useConversationUpdaters();
@@ -102,6 +104,7 @@ const Index = () => {
 
   const handleSelectConversation = useCallback((id: string) => {
     setSelectedId(id);
+    setProfileOpen(false);
   }, []);
 
   return (
@@ -145,11 +148,27 @@ const Index = () => {
       </div>
 
       {/* Main panel */}
-      <div className="flex min-w-0 flex-1 flex-col">
-        {activeTab === "chats" && selectedConversation ? (
-          <ChatPanel conversation={selectedConversation} />
-        ) : (
-          <EmptyChatPanel />
+      <div className="flex min-w-0 flex-1">
+        <div className="flex min-w-0 flex-1 flex-col">
+          {activeTab === "chats" && selectedConversation ? (
+            <ChatPanel
+              conversation={selectedConversation}
+              onToggleProfile={() => setProfileOpen((v) => !v)}
+              isProfileOpen={profileOpen}
+            />
+          ) : (
+            <EmptyChatPanel />
+          )}
+        </div>
+
+        {/* Contact profile panel */}
+        {profileOpen && selectedConversation && (
+          <div className="w-[340px] shrink-0">
+            <ContactProfilePanel
+              conversation={selectedConversation}
+              onClose={() => setProfileOpen(false)}
+            />
+          </div>
         )}
       </div>
     </div>
